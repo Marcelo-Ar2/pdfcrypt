@@ -1,11 +1,15 @@
 import argparse
 import pikepdf
+import os
 
 
 def create_password_protected_pdf(input_pdf, output_pdf, password, strength="256"):
-    """
-    Encrypt a PDF using pikepdf (AES-128 or AES-256)
-    """
+
+    # Check if input file exists before attempting to open
+    if not os.path.exists(input_pdf):
+        print(f"[X] Input file does not exist: {input_pdf}")
+        return
+
     try:
         with pikepdf.open(input_pdf) as pdf:
 
@@ -32,9 +36,11 @@ def create_password_protected_pdf(input_pdf, output_pdf, password, strength="256
 
 
 def decrypt_pdf(input_pdf, output_pdf, password):
-    """
-    Decrypt a password-protected PDF using pikepdf
-    """
+    # Check if file exists before attempting to open
+    if not os.path.exists(input_pdf):
+        print(f"[X] Input file does not exist: {input_pdf}")
+        return
+
     try:
         with pikepdf.open(input_pdf, password=password) as pdf:
             pdf.save(output_pdf)

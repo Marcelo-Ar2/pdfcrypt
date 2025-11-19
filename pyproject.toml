@@ -1,0 +1,20 @@
+[project]
+name = "pdfcrypt"
+version = "0.1.0"
+description = "A simple CLI tool to encrypt and decrypt PDF files using pikepdf"
+authors = [
+    {name = "Marcelo", email="marcelocav.araujo@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.8"
+
+dependencies = [
+    "pikepdf>=9.0.0"
+]
+
+[project.scripts]
+pdfcrypt = "pdfcrypt.cli:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"

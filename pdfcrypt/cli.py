@@ -96,7 +96,22 @@ def main():
         help="Encryption strength (128 or 256). Default is 128."
     )
 
+    parser.add_argument(
+        "-f", "--force",
+        action="store_true",
+        help="Overwrite output file if it already exists"
+    )
+
     args = parser.parse_args()
+
+    if not args.output.lower().endswith(".pdf"):
+        print("[!] Output file does not end with .pdf\n"
+              "[!] Adding extention automatically.")
+        args.output += ".pdf"
+    
+    if os.path.exists(args.output) and not args.force:
+        print(f"[X] Output file '{args.output}' already exists. Use --force to overwrite.")
+        return
 
     if args.decrypt:
         decrypt_pdf(args.input, args.output, args.password)

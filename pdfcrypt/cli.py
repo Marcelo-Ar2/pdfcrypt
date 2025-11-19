@@ -1,6 +1,7 @@
 import argparse
 import pikepdf
 import os
+from . import __version__
 
 
 def create_password_protected_pdf(input_pdf, output_pdf, password, strength="256"):
@@ -68,32 +69,41 @@ def main():
     parser.add_argument(
         "-i", "--input",
         required=True,
+        metavar="INPUT.pdf",
         help="Path to the input PDF"
     )
 
     parser.add_argument(
         "-o", "--output",
         required=True,
-        help="Path to the output PDF"
+        metavar="OUTPUT.pdf",
+        help="Path where the processed PDF will be saved"
     )
 
     parser.add_argument(
         "-p", "--password",
         required=True,
-        help="Password for encryption or decryption"
+        help="Password used for encryption or decryption"
     )
 
-    parser.add_argument(
+    mode_group = parser.add_mutually_exclusive_group()
+    mode_group.add_argument(
         "-d", "--decrypt",
         action="store_true",
-        help="Decrypt the input PDF instead of encrypting it"
+        help="Decrypt the input PDF"
     )
+    mode_group.add_argument(
+        "-e", "--encrypt",
+        action="store_true",
+        help="Encrypt the input PDF (default)"
+    )
+
 
     parser.add_argument(
         "-s", "--strength",
         choices=["128", "256"],
         default="128",
-        help="Encryption strength (128 or 256). Default is 128."
+        help="Encryption strength: 128 (AES-128) or 256 (AES-256). Default: 128."
     )
 
     parser.add_argument(
@@ -102,7 +112,20 @@ def main():
         help="Overwrite output file if it already exists"
     )
 
+    parser.add_argument(
+    "-v", "--version",
+    action="version",
+    version=f"pdfcrypt {__version__}",
+    help="Show the version number and exit"
+    )
+
+
     args = parser.parse_args()
+
+    # Default mode = encrypt
+    if not args.decrypt and not args.encrypt:
+        args.encrypt = True
+
 
     if not args.output.lower().endswith(".pdf"):
         print("[!] Output file does not end with .pdf\n"

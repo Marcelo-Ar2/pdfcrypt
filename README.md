@@ -19,7 +19,7 @@ A simple and secure command-line tool to encrypt and decrypt PDF files using AES
 ### Install locally from source
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/pdfcrypt
+git clone https://github.com/Marcelo-Ar2/pdfcrypt
 cd pdfcrypt
 pip install .
 ```

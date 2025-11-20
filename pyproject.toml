@@ -12,9 +12,36 @@ dependencies = [
     "pikepdf>=9.0.0"
 ]
 
+license = { file = "LICENSE" }
+
+keywords = [
+    "pdf",
+    "encryption",
+    "decryption",
+    "cli",
+    "security",
+    "aes",
+]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Security :: Cryptography",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+]
+
 [project.scripts]
 pdfcrypt = "pdfcrypt.cli:main"
 
 [build-system]
 requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
+
+[project.urls]
+"Homepage" = "https://github.com/YOUR_USERNAME/pdfcrypt"
+"Repository" = "https://github.com/YOUR_USERNAME/pdfcrypt"
+"Issues" = "https://github.com/YOUR_USERNAME/pdfcrypt/issues"
+
+

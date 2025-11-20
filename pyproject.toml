@@ -40,8 +40,8 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project.urls]
-"Homepage" = "https://github.com/YOUR_USERNAME/pdfcrypt"
-"Repository" = "https://github.com/YOUR_USERNAME/pdfcrypt"
-"Issues" = "https://github.com/YOUR_USERNAME/pdfcrypt/issues"
+"Homepage" = "https://github.com/Marcelo-Ar2/pdfcrypt"
+"Repository" = "https://github.com/Marcelo-Ar2/pdfcrypt"
+"Issues" = "https://github.com/Marcelo-Ar2/pdfcrypt/issues"
 
 

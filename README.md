@@ -76,21 +76,6 @@ pdfcrypt --version
 - pikepdf >= 9.0.0
 
 
-## Troubleshooting
-
-### "The file is not a valid PDF"
-The input file may be corrupted or not a PDF.
-
-### "Incorrect password or decryption failed"
-The provided password does not match the PDF.
-
-### "Input file does not exist"
-Make sure the path is correct and the file is accessible.
-
-### Windows: Installation fails due to missing Visual C++ Build Tools
-Install "Microsoft C++ Build Tools" from the official site.
-
-
 ## License
 
 MIT License. See `LICENSE` file for details.
